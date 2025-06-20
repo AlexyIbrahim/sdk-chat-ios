@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+require('dotenv').config();
+
 const axios = require('axios');
 const fs = require('fs');
 const path = require('path');
@@ -54,7 +56,7 @@ class JenkinsStatusMonitor {
     }
   }
 
-  async fetchWithTimeout(url, timeout = 10000) {
+  async fetchWithTimeout(url, timeout = 30000) {
     this.startTime = Date.now();
     return axios.get(url, {
       auth: {
